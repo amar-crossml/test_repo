@@ -29,4 +29,5 @@ jobs:
 
     - name: GitHub Action for Maven
       uses: LucaFeger/action-maven-cli@1.1.0
-      args: clean install
+      with:
+        args: clean install
