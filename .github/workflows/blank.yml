@@ -33,6 +33,7 @@ jobs:
           ls -lrt
 
       - name: GitHub Action for Maven
+        if: ${{ success() }}
         uses: LucaFeger/action-maven-cli@1.1.0
         with:
           args: -f /home/runner/work/test_repo/test_repo/AdaptAPITesting/pom.xml clean install
