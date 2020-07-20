@@ -20,18 +20,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      with:
-        repository: adaptusnow/adapt-testing-smoke-testsuite
-        ref: 'develop'
-        token: ${{ secrets.token }}
+      - uses: actions/checkout@v2
+        with:
+          repository: adaptusnow/adapt-testing-smoke-testsuite
+          ref: 'develop'
+          token: ${{ secrets.token }}
 
-    - name: Change dir
-      run: |
-        cd AdaptAPITesting
-        ls -l
+      - name: Change dir
+        run: |
+          cd AdaptAPITesting
+          ls -l
 
-    - name: GitHub Action for Maven
-      uses: LucaFeger/action-maven-cli@1.1.0
-      with:
-        args: clean install
+      - name: GitHub Action for Maven
+        uses: LucaFeger/action-maven-cli@1.1.0
+        with:
+          args: clean install
