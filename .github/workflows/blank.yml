@@ -29,7 +29,8 @@ jobs:
       - name: Change dir
         run: |
           cd AdaptAPITesting
-          ls -l
+          pwd
+          ls -lrt
 
       - name: GitHub Action for Maven
         uses: LucaFeger/action-maven-cli@1.1.0
