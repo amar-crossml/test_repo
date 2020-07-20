@@ -26,8 +26,10 @@ jobs:
         ref: 'develop'
         token: ${{ secrets.token }}
 
+    - name: Change dir
+      run: cd AdaptAPITesting
+
     - name: GitHub Action for Maven
       uses: LucaFeger/action-maven-cli@1.1.0
       with:
         args: clean install
-        working-directory: AdaptAPITesting
