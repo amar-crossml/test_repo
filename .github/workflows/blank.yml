@@ -30,3 +30,4 @@ jobs:
       uses: LucaFeger/action-maven-cli@1.1.0
       with:
         args: clean install
+        working-directory: AdaptAPITesting
