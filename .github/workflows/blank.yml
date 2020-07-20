@@ -35,4 +35,4 @@ jobs:
       - name: GitHub Action for Maven
         uses: LucaFeger/action-maven-cli@1.1.0
         with:
-          args: clean install
+          args: -f /home/runner/work/test_repo/test_repo/AdaptAPITesting/pom.xml clean install
