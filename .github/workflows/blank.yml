@@ -24,6 +24,7 @@ jobs:
       with:
         repository: adaptusnow/adapt-testing-smoke-testsuite
         ref: 'develop'
+        token: ${{ secrets.token }}
 
     - name: GitHub Action for Maven
       uses: LucaFeger/action-maven-cli@1.1.0
