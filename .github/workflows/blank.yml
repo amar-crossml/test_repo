@@ -37,7 +37,7 @@ jobs:
           pwd
           ls -lrt
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -f /home/runner/work/test_repo/test_repo/AdaptAPITesting clean install
 #       - name: GitHub Action for Maven
 #         if: ${{ success() }}
 #         uses: LucaFeger/action-maven-cli@1.1.0
