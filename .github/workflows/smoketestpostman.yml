@@ -35,12 +35,7 @@ jobs:
           ref: 'develop'
           token: ${{ secrets.token }}
 
-      - name: Change dir
-        run: |
-          cd PostmanSmokeTest
-          pwd
-          ls -lrt
-
       - run: npm install -g newman
+      - run: cd PostmanSmokeTest
       - run: ls -lrt
       - run: newman run SmokeTestSuite.postman_collection.json -e dev.postman_environment.json --working-dir "PostmanSmokeTest"
