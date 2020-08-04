@@ -35,5 +35,6 @@ jobs:
 
       - uses: matt-ball/newman-action@master
         with:
-          collection: postman_collection.json
-          environment: postman_environment.json
+          collection: SmokeTestSuite.postman_collection.json
+          environment: dev.postman_environment.json
+
