@@ -27,6 +27,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: npm install -g newman
 
       - uses: actions/checkout@v2
         with:
@@ -35,7 +36,7 @@ jobs:
           ref: 'develop'
           token: ${{ secrets.token }}
 
-      - run: npm install -g newman
+      - run: pwd
       - run: cd PostmanSmokeTest
       - run: ls -lrt
       - run: newman run SmokeTestSuite.postman_collection.json -e dev.postman_environment.json --working-dir "PostmanSmokeTest"
