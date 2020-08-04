@@ -16,6 +16,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,9 +35,9 @@ jobs:
           cd PostmanSmokeTest
           pwd
           ls -lrt
-
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          collection: https://github.com/adaptusnow/adapt-testing-smoke-testsuite/blob/develop/PostmanSmokeTest/SmokeTestSuite.postman_collection.json
-          environment: https://github.com/adaptusnow/adapt-testing-smoke-testsuite/blob/develop/PostmanSmokeTest/dev.postman_environment.json
+          node-version: ${{ matrix.node-version }}
+      - run: npm install newman
+      - run: newman run SmokeTestSuite.postman_collection.json -e dev.postman_environment.json --working-dir "PostmanSmokeTest"
