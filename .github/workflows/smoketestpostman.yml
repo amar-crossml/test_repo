@@ -37,6 +37,7 @@ jobs:
           token: ${{ secrets.token }}
 
       - run: pwd
-      - run: cd PostmanSmokeTest
-      - run: ls -lrt
-      - run: newman run SmokeTestSuite.postman_collection.json -e dev.postman_environment.json --working-dir "PostmanSmokeTest"
+      - run: |
+          cd PostmanSmokeTest
+          ls -lrt
+          newman run SmokeTestSuite.postman_collection.json -e dev.postman_environment.json --working-dir "PostmanSmokeTest"
