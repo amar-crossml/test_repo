@@ -33,8 +33,13 @@ jobs:
           pwd
           ls -lrt
 
-      - uses: matt-ball/newman-action@master
+      - name: Run API Tests
+        id: run-newman
+        uses: anthonyvscode/newman-action@v1
         with:
           collection: SmokeTestSuite.postman_collection.json
           environment: dev.postman_environment.json
+          reporters: cli
 
+      - name: Output summary to console
+        run: echo ${{ steps.run-api-tests.outputs.summary }}
